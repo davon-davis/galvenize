@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html class="wf-proximanova-n7-active wf-proximanova-i7-active wf-proximanova-n4-active wf-proximanova-i4-active wf-proximanova-n3-active wf-proximanova-n5-active wf-active" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Synchronize Git &amp; Github</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no" name="viewport">
+<link rel="shortcut icon" type="image/x-icon" href="https://learn-2.galvanize.com/assets/favicon-6ed92de2b8fe8053b4d9a02f82db7098794af8b649320fc99c79e18c6090f0d3.ico">
+<link rel="stylesheet" media="all" href="Synchronize%20Git%20&amp;%20Github_files/application-ba30c43abdff3e630c0ebebb78cd0b9cc15cc56bf267b5ef.css">
+<link rel="stylesheet" media="all" href="Synchronize%20Git%20&amp;%20Github_files/application-18c662166a605e4148afa25906ac0214.css">
+<script type="text/javascript" async="" src="Synchronize%20Git%20&amp;%20Github_files/APP_ID"></script><script type="text/javascript" async="" src="Synchronize%20Git%20&amp;%20Github_files/analytics.js"></script><script async="" src="Synchronize%20Git%20&amp;%20Github_files/gtm.js"></script><script src="Synchronize%20Git%20&amp;%20Github_files/application-f442f49cdd244b843c24.js"></script>
+<script src="Synchronize%20Git%20&amp;%20Github_files/application-b5aa423759d25a73bd1a1cb27ea54fd5a09279fa6d2e1f123.js"></script>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Te4EIcl9nSLuohr/QPBZLU0sP9aeUBj6j/w816CjWPAdJdBFBY19wACP5Pwkl37IzjDz6kX4ld9p/Oy41Q4pXg==">
+<script src="Synchronize%20Git%20&amp;%20Github_files/fta2tko.js"></script>
+<script>
+  <!-- Google Tag Manager -->
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PL8P96T');
+  <!-- End Google Tag Manager -->
+</script>
+<style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}</style><style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/925423/00000000000000003b9b038f/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/cd78b3/00000000000000003b9b038e/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/219c30/00000000000000003b9b0389/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/0de7d4/00000000000000003b9b0388/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/ed2fe5/00000000000000003b9b0387/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/77eeb5/00000000000000003b9b038b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format("woff2"),url(https://use.typekit.net/af/77eeb5/00000000000000003b9b038b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format("woff"),url(https://use.typekit.net/af/77eeb5/00000000000000003b9b038b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format("opentype");font-weight:500;font-style:normal;font-display:auto;}</style><script>
+  try { Typekit.load({ async: false }); } catch(e) {}
+</script>
+<style type="text/css">.__react_component_tooltip {
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 13px;
+  left: -999em;
+  opacity: 0;
+  padding: 8px 21px;
+  position: fixed;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+  top: -999em;
+  visibility: hidden;
+  z-index: 999;
+}
+.__react_component_tooltip.allow_hover, .__react_component_tooltip.allow_click {
+  pointer-events: auto;
+}
+.__react_component_tooltip::before, .__react_component_tooltip::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.__react_component_tooltip.show {
+  opacity: 0.9;
+  margin-top: 0;
+  margin-left: 0;
+  visibility: visible;
+}
+.__react_component_tooltip.place-top::before {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  bottom: -8px;
+  left: 50%;
+  margin-left: -10px;
+}
+.__react_component_tooltip.place-bottom::before {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  top: -8px;
+  left: 50%;
+  margin-left: -10px;
+}
+.__react_component_tooltip.place-left::before {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  right: -8px;
+  top: 50%;
+  margin-top: -5px;
+}
+.__react_component_tooltip.place-right::before {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  left: -8px;
+  top: 50%;
+  margin-top: -5px;
+}
+.__react_component_tooltip .multi-line {
+  display: block;
+  padding: 2px 0;
+  text-align: center;
+}</style><style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}.ace_text-input-ios {position: absolute !important;top: -100000px !important;left: -100000px !important;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style>.fluidvids {width: 100%; max-width: 100%; position: relative;}.fluidvids-item {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;}</style></head>
+<body class=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe height='0' src='https://www.googletagmanager.com/ns.html?id=GTM-PL8P96T' style='display:none;visibility:hidden' width='0'></iframe>
+<!-- End Google Tag Manager (noscript) -->
+</noscript>
+<div class="navshadow primary-navigation navigation-move-right" id="primary-navigation" style="width: 1361px;">
+<a class="logo" title="Galvanize Logo navigates to curriculum overview" href="https://learn-2.galvanize.com/"></a>
+<div class="item">
+<div class="navigation-dropdown" title="AFC Software Development Immersive - Feb 1, 2021">
+<div class="label">
+<div class="cohort-label">
+AFC Software Development Immersive - Feb 1, 2021
+</div>
+<svg class="icon"><use xlink:href="/assets/images/svg/svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_24px"></use></svg>
+</div>
+<ul class="list">
+<li class="item">
+<a title="AFC Software Development Immersive - Feb 1, 2021" href="https://learn-2.galvanize.com/cohorts/2406">AFC Software Development Immersive - Feb 1, 2021</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="notifications"><div data-react-class="Notifications" data-react-props="{&quot;isMobileDevice&quot;:null}"><div class="notifications "><div class="notificationsicon"><svg class="svg svg-24px undefined"><use xlink:href="/assets/images/svg/svg-sprite-social-symbol.svg#ic_notifications_24px"></use></svg></div></div></div></div>
+<div id="user-slide-out"></div>
+<div class="item">
+<div class="navigation-dropdown">
+<div class="label">
+<div class="user-avatar">
+<svg viewBox="0 0 80 80">
+<text fill="#FFFFFF" font-size="36" font-weight="400">
+<tspan text-anchor="middle" x="40" y="53">
+VL
+</tspan>
+</text>
+</svg>
+</div>
+Vincent LoGiudice
+<svg class="icon"><use xlink:href="/assets/images/svg/svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_24px"></use></svg>
+</div>
+<ul class="list">
+<li class="item">
+<a target="_blank" href="https://auth.galvanize.com/account">My Account</a>
+<span class="account-email">vincent.r.logiudice.mil@mail.mil</span>
+</li>
+<li class="item">
+<a href="https://learn-2.galvanize.com/sign_out">Sign Out</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<main>
+<!-- TODO: Dynamic import -->
+<script src="Synchronize%20Git%20&amp;%20Github_files/MathJax.js" type="text/javascript"></script>
+<div data-react-class="content_files/Lesson" data-react-props="{&quot;repoDetails&quot;:{&quot;repo_name&quot;:&quot;git-github-block&quot;,&quot;org&quot;:&quot;gSchool&quot;,&quot;origin&quot;:&quot;github.com&quot;},&quot;visitedLessonUids&quot;:[&quot;9f8fba46-0355-432f-83d8-63bd08239d02&quot;,&quot;41093da6-ebbf-4256-b3b6-89c5ab0ce99b&quot;],&quot;standard&quot;:{&quot;block_id&quot;:58,&quot;cohort_id&quot;:2406,&quot;description&quot;:&quot;Utilize features of GitHub to backup local code and work from other people's code&quot;,&quot;id&quot;:86240,&quot;title&quot;:&quot;Git \u0026 GitHub&quot;,&quot;standard&quot;:{&quot;id&quot;:86240,&quot;uid&quot;:&quot;WD-AwEHBAIOAgk&quot;,&quot;release_id&quot;:27672,&quot;description&quot;:&quot;Utilize features of GitHub to backup local code and work from other people's code&quot;,&quot;title&quot;:&quot;Git \u0026 GitHub&quot;,&quot;success_criteria&quot;:[&quot;Synchronize a local git repository and a GitHub repository&quot;,&quot;Add, remove, and modify remotes&quot;,&quot;Fork and clone a repository you do not own&quot;,&quot;Pull new additions from a forked repository&quot;],&quot;position&quot;:1,&quot;created_at&quot;:&quot;2021-01-15T16:56:58.828Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:56:58.828Z&quot;},&quot;instructor_or_admin&quot;:false,&quot;path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/00-overview.md&quot;,&quot;status_class&quot;:&quot;-is-current&quot;,&quot;cohort_standard_progress_data&quot;:[{&quot;id&quot;:425067,&quot;title&quot;:&quot;Overview&quot;,&quot;uid&quot;:&quot;9f8fba46-0355-432f-83d8-63bd08239d02&quot;,&quot;type_relative_position&quot;:1,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;hidden&quot;:false,&quot;content_file_path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/00-overview.md&quot;,&quot;challenges&quot;:[]},{&quot;id&quot;:425068,&quot;title&quot;:&quot;Synchronize Git \u0026 Github&quot;,&quot;uid&quot;:&quot;41093da6-ebbf-4256-b3b6-89c5ab0ce99b&quot;,&quot;type_relative_position&quot;:2,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;hidden&quot;:false,&quot;content_file_path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/01-sync.md&quot;,&quot;challenges&quot;:[{&quot;id&quot;:752920,&quot;uid&quot;:&quot;a3beff7d-9fb5-469c-9fc4-1436f14f535c&quot;,&quot;title&quot;:&quot;Git and GitHub&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}},{&quot;id&quot;:752921,&quot;uid&quot;:&quot;07c69be1-e2ce-4c42-b0e1-114d03c9c6ca&quot;,&quot;title&quot;:&quot;Git Push, Fetch, and Pull A&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}},{&quot;id&quot;:752922,&quot;uid&quot;:&quot;40900b32-f543-46b1-856d-0d5de2e55148&quot;,&quot;title&quot;:&quot;Git Push, Fetch, and Pull B&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}}]},{&quot;id&quot;:425069,&quot;title&quot;:&quot;Working with Remotes&quot;,&quot;uid&quot;:&quot;55fd6696-406c-4378-b7c8-2ce4ef847fd8&quot;,&quot;type_relative_position&quot;:3,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;hidden&quot;:false,&quot;content_file_path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/02-remotes.md&quot;,&quot;challenges&quot;:[{&quot;id&quot;:752923,&quot;uid&quot;:&quot;837a7058-e4da-4487-a9d8-60e9bdd1f6df&quot;,&quot;title&quot;:&quot;Remotes A&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}},{&quot;id&quot;:752924,&quot;uid&quot;:&quot;19d3fd06-5712-4dcf-8e92-23bfa9f44a6b&quot;,&quot;title&quot;:&quot;Remotes B&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}}]},{&quot;id&quot;:425070,&quot;title&quot;:&quot;Forking Repositories&quot;,&quot;uid&quot;:&quot;6475075b-ad0b-4602-8b33-52b7a5f32358&quot;,&quot;type_relative_position&quot;:4,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;hidden&quot;:false,&quot;content_file_path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/03-forking.md&quot;,&quot;challenges&quot;:[{&quot;id&quot;:752925,&quot;uid&quot;:&quot;bbac3cf2-3376-477e-a216-d9036a07b7df&quot;,&quot;title&quot;:&quot;Forking a Repository&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}}]}],&quot;cohort_standard_progress&quot;:{&quot;percent_done&quot;:25.0,&quot;standard&quot;:{&quot;title&quot;:&quot;Git \u0026 GitHub&quot;,&quot;uid&quot;:&quot;WD-AwEHBAIOAgk&quot;,&quot;id&quot;:86240},&quot;remaining&quot;:3,&quot;checkpoint_percent&quot;:null},&quot;progress_complete&quot;:25.0,&quot;cohort_mode&quot;:&quot;Percentage&quot;,&quot;is_completed&quot;:false,&quot;remaining_to_completion&quot;:3},&quot;checkpointInfo&quot;:{&quot;cohortId&quot;:2406,&quot;cohortMode&quot;:&quot;Percentage&quot;,&quot;checkpointsByState&quot;:{&quot;done&quot;:null,&quot;retry&quot;:null,&quot;started&quot;:null,&quot;needs_review&quot;:null},&quot;challengeTotal&quot;:3,&quot;contentFilesSubmission&quot;:null,&quot;challengeCorrect&quot;:0},&quot;contentFilesSubmissions&quot;:[{&quot;id&quot;:425067,&quot;title&quot;:&quot;Overview&quot;,&quot;uid&quot;:&quot;9f8fba46-0355-432f-83d8-63bd08239d02&quot;,&quot;type_relative_position&quot;:1,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;hidden&quot;:false,&quot;content_file_path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/00-overview.md&quot;,&quot;challenges&quot;:[]},{&quot;id&quot;:425068,&quot;title&quot;:&quot;Synchronize Git \u0026 Github&quot;,&quot;uid&quot;:&quot;41093da6-ebbf-4256-b3b6-89c5ab0ce99b&quot;,&quot;type_relative_position&quot;:2,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;hidden&quot;:false,&quot;content_file_path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/01-sync.md&quot;,&quot;challenges&quot;:[{&quot;id&quot;:752920,&quot;uid&quot;:&quot;a3beff7d-9fb5-469c-9fc4-1436f14f535c&quot;,&quot;title&quot;:&quot;Git and GitHub&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}},{&quot;id&quot;:752921,&quot;uid&quot;:&quot;07c69be1-e2ce-4c42-b0e1-114d03c9c6ca&quot;,&quot;title&quot;:&quot;Git Push, Fetch, and Pull A&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}},{&quot;id&quot;:752922,&quot;uid&quot;:&quot;40900b32-f543-46b1-856d-0d5de2e55148&quot;,&quot;title&quot;:&quot;Git Push, Fetch, and Pull B&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}}]},{&quot;id&quot;:425069,&quot;title&quot;:&quot;Working with Remotes&quot;,&quot;uid&quot;:&quot;55fd6696-406c-4378-b7c8-2ce4ef847fd8&quot;,&quot;type_relative_position&quot;:3,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;hidden&quot;:false,&quot;content_file_path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/02-remotes.md&quot;,&quot;challenges&quot;:[{&quot;id&quot;:752923,&quot;uid&quot;:&quot;837a7058-e4da-4487-a9d8-60e9bdd1f6df&quot;,&quot;title&quot;:&quot;Remotes A&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}},{&quot;id&quot;:752924,&quot;uid&quot;:&quot;19d3fd06-5712-4dcf-8e92-23bfa9f44a6b&quot;,&quot;title&quot;:&quot;Remotes B&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}}]},{&quot;id&quot;:425070,&quot;title&quot;:&quot;Forking Repositories&quot;,&quot;uid&quot;:&quot;6475075b-ad0b-4602-8b33-52b7a5f32358&quot;,&quot;type_relative_position&quot;:4,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;hidden&quot;:false,&quot;content_file_path&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/03-forking.md&quot;,&quot;challenges&quot;:[{&quot;id&quot;:752925,&quot;uid&quot;:&quot;bbac3cf2-3376-477e-a216-d9036a07b7df&quot;,&quot;title&quot;:&quot;Forking a Repository&quot;,&quot;student_submissions&quot;:{&quot;76788&quot;:{&quot;status&quot;:&quot;n/a&quot;,&quot;correct_points&quot;:null,&quot;total_points&quot;:null}}}]}],&quot;userId&quot;:76788,&quot;masteryCohort&quot;:false,&quot;cohortPath&quot;:&quot;/cohorts/2406&quot;,&quot;challenges&quot;:[{&quot;id&quot;:752922,&quot;uid&quot;:&quot;40900b32-f543-46b1-856d-0d5de2e55148&quot;,&quot;user_id&quot;:null,&quot;latest_submissions_for_cohort&quot;:[],&quot;submitted_challenge_answer_presenters&quot;:[],&quot;answered&quot;:false,&quot;autoscorable&quot;:true,&quot;challenge_type&quot;:&quot;short-answer&quot;,&quot;title&quot;:&quot;Git Push, Fetch, and Pull B&quot;,&quot;topics&quot;:null,&quot;decimal&quot;:null,&quot;question&quot;:&quot;\u003cp\u003eA classmate has pushed up a new commit to GitHub on a repository you\u0026#39;re both working on. What single command should you run?\u003c/p\u003e\n&quot;,&quot;points&quot;:1,&quot;language&quot;:null,&quot;placeholder&quot;:null,&quot;options&quot;:null,&quot;can_check_answer&quot;:true,&quot;can_view_status&quot;:true,&quot;can_view_explanation&quot;:true,&quot;number_of_hints&quot;:0,&quot;hints&quot;:[],&quot;show_tests&quot;:false},{&quot;id&quot;:752921,&quot;uid&quot;:&quot;07c69be1-e2ce-4c42-b0e1-114d03c9c6ca&quot;,&quot;user_id&quot;:null,&quot;latest_submissions_for_cohort&quot;:[],&quot;submitted_challenge_answer_presenters&quot;:[],&quot;answered&quot;:false,&quot;autoscorable&quot;:true,&quot;challenge_type&quot;:&quot;multiple-choice&quot;,&quot;title&quot;:&quot;Git Push, Fetch, and Pull A&quot;,&quot;topics&quot;:null,&quot;decimal&quot;:null,&quot;question&quot;:&quot;\u003cp\u003eThe \u003ccode\u003epull\u003c/code\u003e command is the combination of what two other commands?\u003c/p\u003e\n&quot;,&quot;points&quot;:1,&quot;language&quot;:null,&quot;placeholder&quot;:null,&quot;options&quot;:[{&quot;rendered_option&quot;:&quot;\u003cp\u003e\u003ccode\u003efetch\u003c/code\u003e and \u003ccode\u003epush\u003c/code\u003e\u003c/p\u003e\n&quot;,&quot;option&quot;:&quot;`fetch` and `push`&quot;},{&quot;rendered_option&quot;:&quot;\u003cp\u003e\u003ccode\u003epush\u003c/code\u003e and \u003ccode\u003emerge\u003c/code\u003e\u003c/p\u003e\n&quot;,&quot;option&quot;:&quot;`push` and `merge`&quot;},{&quot;rendered_option&quot;:&quot;\u003cp\u003e\u003ccode\u003efetch\u003c/code\u003e and \u003ccode\u003emerge\u003c/code\u003e\u003c/p\u003e\n&quot;,&quot;option&quot;:&quot;`fetch` and `merge`&quot;}],&quot;can_check_answer&quot;:true,&quot;can_view_status&quot;:true,&quot;can_view_explanation&quot;:true,&quot;number_of_hints&quot;:0,&quot;hints&quot;:[],&quot;show_tests&quot;:false},{&quot;id&quot;:752920,&quot;uid&quot;:&quot;a3beff7d-9fb5-469c-9fc4-1436f14f535c&quot;,&quot;user_id&quot;:null,&quot;latest_submissions_for_cohort&quot;:[],&quot;submitted_challenge_answer_presenters&quot;:[],&quot;answered&quot;:false,&quot;autoscorable&quot;:false,&quot;challenge_type&quot;:&quot;paragraph&quot;,&quot;title&quot;:&quot;Git and GitHub&quot;,&quot;topics&quot;:null,&quot;decimal&quot;:null,&quot;question&quot;:&quot;\u003cp\u003eIn your own words, describe the rocket ship analogy in terms of how it relates to git and GitHub.\u003c/p\u003e\n&quot;,&quot;points&quot;:1,&quot;language&quot;:null,&quot;placeholder&quot;:&quot;Write your answer here&quot;,&quot;options&quot;:null,&quot;can_check_answer&quot;:true,&quot;can_view_status&quot;:true,&quot;can_view_explanation&quot;:true,&quot;number_of_hints&quot;:0,&quot;hints&quot;:[],&quot;show_tests&quot;:false}],&quot;permalink&quot;:&quot;https://learn-2.galvanize.com/content_link/github/gSchool/git-github-block/Git%20and%20GitHub/01-sync.md&quot;,&quot;githubUrl&quot;:&quot;https://github.com/gSchool/git-github-block/blob/afcsdi/Git and GitHub/01-sync.md&quot;,&quot;contentFileId&quot;:425068,&quot;contentFileHtml&quot;:&quot;\u003ch1 id=\&quot;synchronize-git--github\&quot;\u003eSynchronize Git \u0026amp; Github\u003c/h1\u003e\n\n\u003cp\u003eIn order to maximize our use of Git \u0026amp; Github, we\u0026#39;ll need to synchronize the two. Let\u0026#39;s start by making a new repository on GitHub -- \u003cem\u003enot a new local git repository\u003c/em\u003e.\u003c/p\u003e\n\n\u003cp\u003e\u003cimg src=\&quot;https://students-gschool-production.s3.amazonaws.com/uploads/asset/file/86/create-github-repo-1.png\&quot; alt=\&quot;Hit the + Icon\&quot;\u003e\n\u003cimg src=\&quot;https://students-gschool-production.s3.amazonaws.com/uploads/asset/file/87/create-github-repo-2.png\&quot; alt=\&quot;Hit Create\&quot;\u003e\u003c/p\u003e\n\n\u003cp\u003eYou may call your repository whatever you want. You will now be prompted with two sets of instructions. Stop there!\u003c/p\u003e\n\n\u003cp\u003eCreate a local git repository on your machine -- \u003cem\u003enot a new GitHub repository\u003c/em\u003e -- then add a file. Commit that file with a commit message. Once everything is good locally, copy the two lines you see on the page that look similar to this:\u003c/p\u003e\n\n\u003cp\u003e\u003cimg src=\&quot;https://s3-us-west-2.amazonaws.com/forge-production.galvanize.com/content/587be2303f8e142b5c364e71536d492f.png\&quot; alt=\&quot;\&quot;\u003e\u003c/p\u003e\n\n\u003cp\u003ePaste those two lines into your terminal where your local git repository is. Refresh your page on GitHub and you should now see your file up on the interwebs!\u003c/p\u003e\n\n\u003cp\u003eWatch the following two videos to learn more about how Git and GitHub are related and the commands you can use to synchronize between the two.\u003c/p\u003e\n\n\u003ch2 id=\&quot;git-add-commit-and-push\&quot;\u003eGit Add, Commit, and Push\u003c/h2\u003e\n\u003cscript src=\&quot;https://player.vimeo.com/api/player.js\&quot;\u003e\u003c/script\u003e\u003ciframe id=\&quot;vpt_learn0\&quot; src=\&quot;https://player.vimeo.com/video/223815936\&quot; width=\&quot;640\&quot; height=\&quot;360\&quot; frameborder=\&quot;0\&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen\u003e\u003c/iframe\u003e\u003ch2 id=\&quot;git-fetch-push-and-pull\&quot;\u003eGit Fetch, Push, and Pull\u003c/h2\u003e\n\u003cscript src=\&quot;https://player.vimeo.com/api/player.js\&quot;\u003e\u003c/script\u003e\u003ciframe id=\&quot;vpt_learn1\&quot; src=\&quot;https://player.vimeo.com/video/223815938\&quot; width=\&quot;640\&quot; height=\&quot;360\&quot; frameborder=\&quot;0\&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen\u003e\u003c/iframe\u003e\u003ch2 id=\&quot;challenges\&quot;\u003eChallenges\u003c/h2\u003e\n\n\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-a3beff7d-9fb5-469c-9fc4-1436f14f535c\&quot;\u003e\u003c/div\u003e\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-07c69be1-e2ce-4c42-b0e1-114d03c9c6ca\&quot;\u003e\u003c/div\u003e\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-40900b32-f543-46b1-856d-0d5de2e55148\&quot;\u003e\u003c/div\u003e&quot;,&quot;contentFileIsCheckpoint&quot;:false,&quot;contentFileIsResource&quot;:false,&quot;contentFileTitle&quot;:&quot;Synchronize Git \u0026 Github&quot;,&quot;contentFilePath&quot;:&quot;Git and GitHub/01-sync.md&quot;,&quot;contentFileType&quot;:&quot;lesson&quot;,&quot;instructorOrAdminOrReadOnly&quot;:false,&quot;standardHidden&quot;:false,&quot;contentFileHidden&quot;:false,&quot;presenter&quot;:{&quot;cohort_id&quot;:2406,&quot;checkpoint_submission_results_path&quot;:&quot;/cohorts/2406/content_files/425068/submitted_challenge_answers/checkpoint_submission_results&quot;,&quot;batch_create_cohort_content_file_submitted_challenge_answers_path&quot;:&quot;/cohorts/2406/content_files/425068/submitted_challenge_answers/batch_create&quot;,&quot;cohort&quot;:{&quot;id&quot;:2406,&quot;uid&quot;:&quot;4f15e7453fe8789af2&quot;,&quot;name&quot;:&quot;AFC Software Development Immersive - Feb 1, 2021&quot;,&quot;product_type&quot;:&quot;Software Development Immersive &quot;,&quot;label&quot;:null,&quot;campus_name&quot;:&quot;Remote&quot;,&quot;slack_channel&quot;:null,&quot;starts_on&quot;:&quot;2021-02-01T00:00:00.000Z&quot;,&quot;ends_on&quot;:&quot;2021-04-23T00:00:00.000Z&quot;,&quot;created_at&quot;:&quot;2020-12-04T20:53:48.192Z&quot;,&quot;updated_at&quot;:&quot;2021-01-25T21:34:49.365Z&quot;,&quot;deleted_at&quot;:null,&quot;mode&quot;:&quot;Percentage&quot;,&quot;settings&quot;:{&quot;progress_thresholds&quot;:[0,25,50,70,90,100]},&quot;user_id&quot;:null,&quot;sandbox&quot;:false,&quot;allow_paired_submissions&quot;:false,&quot;whitelabeled&quot;:false,&quot;logo_url&quot;:null,&quot;student_import_state&quot;:null,&quot;student_import_completed_at&quot;:null,&quot;program&quot;:&quot;Military&quot;,&quot;subject&quot;:&quot;Software Engineering&quot;,&quot;format&quot;:&quot;Full Time&quot;,&quot;category&quot;:&quot;Immersive&quot;,&quot;client&quot;:&quot;Army Futures Command &quot;,&quot;cohort_code&quot;:&quot;&quot;},&quot;current_content_file_id&quot;:425068,&quot;current_standard&quot;:{&quot;id&quot;:86240,&quot;uid&quot;:&quot;WD-AwEHBAIOAgk&quot;,&quot;release_id&quot;:27672,&quot;description&quot;:&quot;Utilize features of GitHub to backup local code and work from other people's code&quot;,&quot;title&quot;:&quot;Git \u0026 GitHub&quot;,&quot;success_criteria&quot;:[&quot;Synchronize a local git repository and a GitHub repository&quot;,&quot;Add, remove, and modify remotes&quot;,&quot;Fork and clone a repository you do not own&quot;,&quot;Pull new additions from a forked repository&quot;],&quot;position&quot;:1,&quot;created_at&quot;:&quot;2021-01-15T16:56:58.828Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:56:58.828Z&quot;},&quot;visibilities&quot;:{&quot;Standard&quot;:[{&quot;id&quot;:45400,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;ea2ef9b0d095bf991f4973633b485340&quot;,&quot;created_at&quot;:&quot;2020-12-16T17:58:19.905Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T17:58:19.905Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:874},{&quot;id&quot;:45401,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;1e84a075b7934f76b4eef6c7a4bfa99f&quot;,&quot;created_at&quot;:&quot;2020-12-16T17:58:19.977Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T17:58:19.977Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:885},{&quot;id&quot;:45414,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;b2079095-6c76-4b02-b08e-f34b56249011&quot;,&quot;created_at&quot;:&quot;2020-12-16T18:13:31.194Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T18:13:31.194Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:45415,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;b6cf4d34-049e-4538-93c1-6158127007dc&quot;,&quot;created_at&quot;:&quot;2020-12-16T18:14:09.202Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T18:14:09.202Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:676},{&quot;id&quot;:45416,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;d409cdf3-d304-40e0-826f-e39068579035&quot;,&quot;created_at&quot;:&quot;2020-12-16T18:15:59.682Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T18:15:59.682Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:655},{&quot;id&quot;:45404,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;36d180b10cfef9d40d7aefafdbf55fa8&quot;,&quot;created_at&quot;:&quot;2020-12-16T17:58:48.075Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T17:58:48.075Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:863},{&quot;id&quot;:45417,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;a3fe10ee-bbc9-440c-becf-96fe7f2d7771&quot;,&quot;created_at&quot;:&quot;2020-12-16T18:16:43.054Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T18:16:43.054Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:646},{&quot;id&quot;:45418,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;3485bb35-2c97-4b10-941e-ae31c1cb7ce2&quot;,&quot;created_at&quot;:&quot;2020-12-16T18:16:50.152Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T18:16:50.152Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:649},{&quot;id&quot;:45420,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;bfcc4651-6d51-4f62-a7a1-bc7b6bf508d2&quot;,&quot;created_at&quot;:&quot;2020-12-16T18:19:07.077Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T18:19:07.077Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:978},{&quot;id&quot;:45421,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;153b3b9d-e91b-4572-a766-f27663e34e51&quot;,&quot;created_at&quot;:&quot;2020-12-16T18:19:07.726Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T18:19:07.726Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:849},{&quot;id&quot;:45422,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;71e9e9c8-5007-4166-858e-e4a6e3322fdf&quot;,&quot;created_at&quot;:&quot;2020-12-16T18:19:08.302Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T18:19:08.302Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:850},{&quot;id&quot;:45446,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;bf809b5d-d067-459c-bdd7-c02eb83b919e&quot;,&quot;created_at&quot;:&quot;2020-12-16T20:02:24.789Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T20:02:24.789Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:221},{&quot;id&quot;:45449,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;3d24a73c-8460-417e-9da8-83f2d01863f2&quot;,&quot;created_at&quot;:&quot;2020-12-16T23:09:13.010Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T23:09:13.010Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:651},{&quot;id&quot;:45447,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;327bc5ee-8504-4093-a666-ada3c9f3f3d6&quot;,&quot;created_at&quot;:&quot;2020-12-16T20:02:25.526Z&quot;,&quot;updated_at&quot;:&quot;2020-12-16T20:02:25.526Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:230},{&quot;id&quot;:48446,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;9a82361d-d881-4983-bafd-7de560e8a7b6&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:41:17.563Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:41:17.563Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48454,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;f7532da8-75ce-40a4-93f2-0ebfe03e7b07&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:44:21.498Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:44:21.498Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:11},{&quot;id&quot;:48455,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;20d16981-7233-4811-bcb9-406ea62659da&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:45:31.802Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:45:31.802Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:214},{&quot;id&quot;:48457,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;fa74770d-4fa5-4425-97ac-2b8237a36201&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:47:03.904Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:47:03.904Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:611},{&quot;id&quot;:48458,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;35b2cd9c-443f-47f6-992a-8744ccaf6c28&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:47:11.543Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:47:11.543Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:967},{&quot;id&quot;:48459,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;a47dd7f7-d13f-4797-aa45-1ce18514b7b0&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:47:12.382Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:47:12.382Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:851},{&quot;id&quot;:48460,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;02584f8b-173e-46b8-86fb-738600e049d6&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:47:16.240Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:47:16.240Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:846},{&quot;id&quot;:48461,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;60bfc647-a172-4698-a4ab-7ddb9cb35215&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:47:16.892Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:47:16.892Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:846},{&quot;id&quot;:48462,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;2dbd6dd6-2efe-4d59-b363-cacd7f256673&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:47:17.475Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:47:17.475Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:846},{&quot;id&quot;:48639,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;9dc23083-221b-44f0-8970-454cc8beb55b&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:16:53.321Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:16:53.321Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:233},{&quot;id&quot;:44914,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;38f42acc-8514-4f4e-af8e-cd5523f20d85&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:55.497Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:55.497Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:823},{&quot;id&quot;:44915,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;21871335-b09c-4712-8d05-ae3defc200db&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:55.553Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:55.553Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:757},{&quot;id&quot;:44916,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;2ce6694e-e28e-433f-a857-903aff0a9596&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:55.600Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:55.600Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:768},{&quot;id&quot;:48746,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;b7b16c4ba248b5e2f5497dbe4900d24c&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:31.981Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:31.981Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48747,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;a06fed3d1919eb08e8af6ac5c3057e14&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:31.993Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:31.993Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48748,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;e6c782f3e90f88388c030582121b0da2&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:32.002Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:32.002Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48749,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;d81a77eb3fa06c683c4bdc9ddc617901&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:32.011Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:32.011Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48750,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;1223874fb29922e4e7bb1474bbc33147&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:32.023Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:32.023Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48751,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;5f723efe7dc9cef80c50e92f6ff538cb&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:32.035Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:32.035Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48752,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;1936a279dd45a49ce82ff369f88ab01c&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:32.046Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:32.046Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48753,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;a9fdae21c6ec412a9b2124707d3b9723&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:32.056Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:32.056Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48754,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;024f2ea1afa39552cc7823dfeaeeba8c&quot;,&quot;created_at&quot;:&quot;2021-01-20T03:53:32.067Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T03:53:32.067Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:44947,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;dc164c9a-ebe1-407a-8ecb-e1c49780bfb0&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:56.699Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:56.699Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:652},{&quot;id&quot;:44966,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;fca6352c-c82f-4953-a1e1-7a1647513bd2&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:54:25.664Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:54:25.664Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:63},{&quot;id&quot;:48959,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;03ad46b2f78354b2ecdabcc86a0e3038&quot;,&quot;created_at&quot;:&quot;2021-01-20T20:59:39.769Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T20:59:39.769Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:48960,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;65c4ba2387f7eb9eb19a3404f6e9e578&quot;,&quot;created_at&quot;:&quot;2021-01-20T20:59:40.378Z&quot;,&quot;updated_at&quot;:&quot;2021-01-20T20:59:40.378Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:49383,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;41124fb2-6b2c-4686-97d7-8f8cc99b64c2&quot;,&quot;created_at&quot;:&quot;2021-01-25T21:50:52.277Z&quot;,&quot;updated_at&quot;:&quot;2021-01-25T21:50:52.277Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1003},{&quot;id&quot;:49600,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;d91c5d145db776b21ac38385f3ae5a7f&quot;,&quot;created_at&quot;:&quot;2021-01-28T18:51:43.770Z&quot;,&quot;updated_at&quot;:&quot;2021-01-28T18:51:43.770Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:856},{&quot;id&quot;:49411,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;a6c18374-79af-4329-ae88-6faa1d1e28f4&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:23.800Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:23.800Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:11},{&quot;id&quot;:49402,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;a3972574-9f8c-4551-8bf8-b86937a83f9c&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:16.496Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:16.496Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:695},{&quot;id&quot;:49403,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;660a3a11-fd48-441f-aad0-80c43e42229b&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:17.685Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:17.685Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49404,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;d6058369-6e40-4b2d-bf21-6df134b41ec9&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:18.238Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:18.238Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49405,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;8c87652a-2ee3-45e3-b3c4-f7f03bdf5dd3&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:19.818Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:19.818Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49406,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;efe32bb3-00ac-48f3-8ca0-cce94ce5f676&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:20.209Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:20.209Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49407,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;b264cc18-0182-47d9-8369-a2339cf03e58&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:20.579Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:20.579Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49408,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;123924b8-c516-4a4b-b0da-7dddb71ca0fb&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:22.040Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:22.040Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:11},{&quot;id&quot;:49409,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;2f00563c-5cb8-4c97-9a42-9c898160ada9&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:22.441Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:22.441Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:11},{&quot;id&quot;:49410,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;8d75069c-2c03-4564-8697-84ca7d0f9ea2&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:23.329Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:23.329Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:11},{&quot;id&quot;:49422,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;50ce2da63bea6a618e7578fa50690040&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:32.761Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:32.761Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:955},{&quot;id&quot;:49412,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;d3c4e874-324e-4a92-8698-52e31de17697&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:25.302Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:25.302Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:11},{&quot;id&quot;:49792,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;WD-DAcKAAIJAQQ&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:03:14.149Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:03:14.149Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:58},{&quot;id&quot;:49413,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;487d5c975db9f32987c949e544ab4dde&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:26.814Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:26.814Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1168},{&quot;id&quot;:49414,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;dba42936ae6aa7966dfb15d0553311ec&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:27.707Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:27.707Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1168},{&quot;id&quot;:49793,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;WD-AwQLDgQNAAU&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:03:28.316Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:03:28.316Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:49415,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;5de5323c0687092e1dd222eb341786c5&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:28.137Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:28.137Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1168},{&quot;id&quot;:49416,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;d21ddce558d5d18f1e84542bf6585801&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:28.714Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:28.714Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1168},{&quot;id&quot;:49417,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;e21fe64f37d3e4b481314bfd00efbf07&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:29.158Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:29.158Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1168},{&quot;id&quot;:49419,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;527de5aaf9a349b21c206ea1117e4799&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:30.734Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:30.734Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:848},{&quot;id&quot;:49425,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;7bc68378fc7e8013638b87506ef5193b&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:35.225Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:35.225Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1145},{&quot;id&quot;:49418,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;da7d763aac39b294c7453c77c10d8239&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:29.533Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:29.533Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1168},{&quot;id&quot;:49421,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;e3d96d5e72e6024537f23fe4bf99aaec&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:31.612Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:31.612Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:859},{&quot;id&quot;:49423,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;65d61c65-0853-4d5b-8785-b1ed9aabd02a&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:33.389Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:33.389Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:49424,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;07ede23a-bc7b-4c05-a9e4-5ebfd18ab77f&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:34.586Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:34.586Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49426,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;841ea28f-df67-494e-a350-792ff300df67&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:36.341Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:36.341Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:671},{&quot;id&quot;:49427,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;6c31ab27-2092-4489-bafc-55d21acb68cb&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:37.399Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:37.399Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1044},{&quot;id&quot;:49429,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;Standard&quot;,&quot;content_uid&quot;:&quot;2a2324d8-3d39-4d9f-bac0-bcc102df32fe&quot;,&quot;created_at&quot;:&quot;2021-01-26T16:22:46.510Z&quot;,&quot;updated_at&quot;:&quot;2021-01-26T16:22:46.510Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992}],&quot;ContentFile&quot;:[{&quot;id&quot;:45288,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;2eb651fa-c7f2-4585-bd2a-47f5b440d447&quot;,&quot;created_at&quot;:&quot;2020-12-14T15:53:01.978Z&quot;,&quot;updated_at&quot;:&quot;2020-12-14T15:53:01.978Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:48453,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;51800e57-aad5-4237-a232-db3206db0dd9&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:42:01.173Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:42:01.173Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:48464,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;cac6aca0-c50d-44d7-8922-ef8f86a1a241&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:18.453Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:18.453Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48465,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;ad6bf1e7-2e2d-4fea-854c-82a0a56eb449&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:19.436Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:19.436Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48466,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;4570f47f-5145-4e51-b9ad-4ef357a539a4&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:20.215Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:20.215Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48467,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;8da14070-40bb-4d87-a0bb-7c449aa483a3&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:23.098Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:23.098Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48468,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;c2fff32c-70a0-4884-8c21-ff35848e7fc2&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:24.446Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:24.446Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48469,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;382eeca9-fe3d-4acc-ad0d-cfec4a734e76&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:25.457Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:25.457Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48470,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;ba0469c6-b90f-4832-b187-ff0fc1950a7f&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:26.861Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:26.861Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48640,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;f810317e-175d-464a-8478-9efa60629bf9&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:56:21.344Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:56:21.344Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48471,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;f777854c-79ce-4db1-9c64-202c41cd43d8&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:28.488Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:28.488Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48472,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;3f5f7a30-643b-11e8-8688-c1e1de05538b&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:29.885Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:29.885Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:48643,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;74e4b968-85fc-4d30-a66a-01fcdf35e2fc&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:00.584Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:00.584Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48645,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;bcaf0f27-3068-4d42-a712-0f3cd9cf7d9c&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:02.860Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:02.860Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:44950,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;df4d0270-ff50-4cdf-af64-a4dd9531224d&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.063Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.063Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44951,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;32a9dbd6-ce54-4bda-81b8-79e46ae93eff&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.083Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.083Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44952,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;777d1624-db51-45f3-aeb0-cb73a6c4b0fe&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.105Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.105Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44953,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;c6090b9c-2f16-49f6-af60-ca67561ce6f7&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.126Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.126Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44954,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;594dfbaa-294a-4be6-809b-2f2cc906f049&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.149Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.149Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44955,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;8cb8d4fc-fb3d-4fb4-9bb8-6372b69f4ee4&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.172Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.172Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44956,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;aaf8ba9d-e30e-4071-acfe-c270f9c0c478&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.199Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.199Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44957,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;364a6859-ae7b-4274-85b4-eab3bdb74839&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.221Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.221Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44958,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;a2a1028f-cb0f-4869-8bb3-3b181fda30a3&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.245Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.245Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44959,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;b818d11c-767f-4801-abbf-fd365e488d9c&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.264Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.264Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44960,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;baf33dd6-d4cc-49a0-96a8-4904a72be7ed&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.284Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.284Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44961,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;c451f38e-21ce-4a4b-ad93-31cf42e17e9f&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.304Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.304Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44962,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;7d4b1e09-1c1b-42a1-82e8-b3e003ce0010&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.328Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.328Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44963,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;143e68f9-b891-4c5a-8e51-53ad0f85ef1e&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.348Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.348Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:992},{&quot;id&quot;:44964,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;e824a3e9-95e3-488b-bf46-eb6d703b3eb5&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.369Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.369Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:966},{&quot;id&quot;:44965,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;7ea34826-efaf-4413-9db4-9d089748ef76&quot;,&quot;created_at&quot;:&quot;2020-12-07T22:49:57.395Z&quot;,&quot;updated_at&quot;:&quot;2020-12-07T22:49:57.395Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1003},{&quot;id&quot;:48646,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;e5bec432-ff86-49d7-a6e7-bd2aa28149ad&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:03.687Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:03.687Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48647,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;51a010e9-2baf-4a41-8c04-6c0919679a24&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:04.587Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:04.587Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48648,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;2a8df546-05b3-4d48-978d-3f77e3b3ca56&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:05.396Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:05.396Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48652,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;4d1e09b4-13ab-4d7a-b3b4-532a30d4b191&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:09.876Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:09.876Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48649,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;804af33a-4c3e-48e7-98ff-6b1df06de097&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:06.281Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:06.281Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48653,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;75710e32-f0ab-404e-bf32-7013c70f1001&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:10.390Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:10.390Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48655,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;1cd5486f-3d85-444f-8d92-21b28184433c&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:11.948Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:11.948Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48657,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;4ad214b5-d5e0-43fc-ac37-3d555fcf8fea&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:13.033Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:13.033Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48658,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;5caab28b-d7bd-4900-a0f3-154ad0708c27&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:13.590Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:13.590Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48650,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;7391b260-5d7b-47f0-a6fa-88950cd7f7ce&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:07.237Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:07.237Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48651,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;39855906-39ba-4789-b7d3-7ce02cb8256f&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:09.318Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:09.318Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48654,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;d46a0b1e-50ae-4fa4-a666-bd4b21658818&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:11.107Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:11.107Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:48656,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;b8beaafa-65a4-4435-97a8-744bbeb497c6&quot;,&quot;created_at&quot;:&quot;2021-01-19T05:57:12.564Z&quot;,&quot;updated_at&quot;:&quot;2021-01-19T05:57:12.564Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:654},{&quot;id&quot;:49004,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;d38c2e7c-c4b3-45e6-8824-1e0ab0ab9db1&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:56:51.703Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:56:51.703Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49005,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;4f4a6ee2-af8d-4490-b190-ebd844d72f4e&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:56:52.468Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:56:52.468Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49006,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;d2072d02-f810-439d-9264-f50a611a7a3e&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:56:53.960Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:56:53.960Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49007,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;d73425fa-e658-4091-af9f-95233529fe9f&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:56:54.561Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:56:54.561Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49008,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;a0cb75a7-d54e-4670-99ec-be92bf08fc6e&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:56:56.591Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:56:56.591Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49009,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;29143e7e-f0f7-4e21-a05c-c3446a34ea2b&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:56:57.023Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:56:57.023Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49010,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;4b48712b-32e8-49c0-8b2c-157bc39cf1f6&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:56:57.842Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:56:57.842Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49011,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;0557d13f-df9b-49df-ae62-20d717597ae2&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:56:59.591Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:56:59.591Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49012,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;99789a5d-0db5-4c62-bc2b-25a610271548&quot;,&quot;created_at&quot;:&quot;2021-01-21T17:57:01.888Z&quot;,&quot;updated_at&quot;:&quot;2021-01-21T17:57:01.888Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:653},{&quot;id&quot;:49519,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;a0043ce9-22e5-4ec2-8346-4ae221b000c2&quot;,&quot;created_at&quot;:&quot;2021-01-27T17:06:44.264Z&quot;,&quot;updated_at&quot;:&quot;2021-01-27T17:06:44.264Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:49523,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;3ba9eee0-84b9-4d5c-8850-cc6487605849&quot;,&quot;created_at&quot;:&quot;2021-01-27T18:57:55.991Z&quot;,&quot;updated_at&quot;:&quot;2021-01-27T18:57:55.991Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:49554,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;f0bdfa25-6ce6-47ad-8b43-549ed7e7a457&quot;,&quot;created_at&quot;:&quot;2021-01-28T00:44:21.465Z&quot;,&quot;updated_at&quot;:&quot;2021-01-28T00:44:21.465Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49520,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;73d984ba-ea0c-4a15-9952-21b922bfbed1&quot;,&quot;created_at&quot;:&quot;2021-01-27T17:07:04.435Z&quot;,&quot;updated_at&quot;:&quot;2021-01-27T17:07:04.435Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:49524,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;0352fa3e-51bb-44ee-91ec-a7db44186a17&quot;,&quot;created_at&quot;:&quot;2021-01-27T18:57:57.635Z&quot;,&quot;updated_at&quot;:&quot;2021-01-27T18:57:57.635Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:49555,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;eb339c96-c3a8-458c-94c5-23af257389ef&quot;,&quot;created_at&quot;:&quot;2021-01-28T00:45:00.246Z&quot;,&quot;updated_at&quot;:&quot;2021-01-28T00:45:00.246Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49521,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;3f5fa140-643b-11e8-8688-c1e1de05538b&quot;,&quot;created_at&quot;:&quot;2021-01-27T17:07:05.735Z&quot;,&quot;updated_at&quot;:&quot;2021-01-27T17:07:05.735Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:21},{&quot;id&quot;:49525,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;0e6ca241-65d5-11e8-b743-bd3df75f314b&quot;,&quot;created_at&quot;:&quot;2021-01-27T19:03:48.135Z&quot;,&quot;updated_at&quot;:&quot;2021-01-27T19:03:48.135Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:58},{&quot;id&quot;:49527,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;65eb193c-1ab6-40e3-9d8d-318d69727d30&quot;,&quot;created_at&quot;:&quot;2021-01-27T19:05:58.862Z&quot;,&quot;updated_at&quot;:&quot;2021-01-27T19:05:58.862Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:58},{&quot;id&quot;:49794,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;f8bfb6ffa6de78c0be377826dbca54ec&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:04:56.452Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:04:56.452Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1184},{&quot;id&quot;:49795,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;d0ce0a02d640ba9347fc950703b68ede&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:04:57.525Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:04:57.525Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1184},{&quot;id&quot;:49796,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;cc32e6e2a0dae5992ee13ce04957d6c3&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:04:58.420Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:04:58.420Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1184},{&quot;id&quot;:49797,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;3fb9953e3cf29233cfdafab729d19ca2&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:04:59.006Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:04:59.006Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1184},{&quot;id&quot;:49798,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;d39cfcae1e37a968688499680586fbfd&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:05:09.463Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:05:09.463Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:49799,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;69586db9535817c5987844498e1c12bd&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:05:11.318Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:05:11.318Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:49800,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;a7a9c9c66e905426cb65c3e2c9bae9b1&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:05:12.117Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:05:12.117Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:49801,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;6a72127c0cfc6a0e69001295408a8354&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:05:14.020Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:05:14.020Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:1169},{&quot;id&quot;:49802,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;7af8cd4e-83b0-4eba-b701-e9a101179cd6&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:26:30.011Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:26:30.011Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49803,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;a920e427-b5d7-4047-9617-5ab78d94d10b&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:32:37.543Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:32:37.543Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3},{&quot;id&quot;:49804,&quot;cohort_id&quot;:2406,&quot;content_type&quot;:&quot;ContentFile&quot;,&quot;content_uid&quot;:&quot;68e6c529-ec2a-4e72-91bd-50f08a2dce64&quot;,&quot;created_at&quot;:&quot;2021-02-01T18:32:57.227Z&quot;,&quot;updated_at&quot;:&quot;2021-02-01T18:32:57.227Z&quot;,&quot;visibility_type&quot;:&quot;hidden&quot;,&quot;block_id&quot;:3}]},&quot;current_content_files&quot;:[{&quot;id&quot;:425067,&quot;standard_id&quot;:86240,&quot;position&quot;:1,&quot;html&quot;:&quot;\u003ch1 id=\&quot;overview\&quot;\u003eOverview\u003c/h1\u003e\n\n\u003ch2 id=\&quot;standard\&quot;\u003eStandard\u003c/h2\u003e\n\n\u003cp\u003eBy the end of this unit, you will be able to utilize features of GitHub to backup local code and work from other people\u0026#39;s code.\u003c/p\u003e\n\n\u003cp\u003eYou\u0026#39;ll know you\u0026#39;re ready to move on when you\u0026#39;ve passed this unit\u0026#39;s \u003ca href=\&quot;99-checkpoint.md\&quot;\u003echeckpoint\u003c/a\u003e.\u003c/p\u003e\n\n\u003ch2 id=\&quot;unit-overview\&quot;\u003eUnit Overview\u003c/h2\u003e\n\n\u003cp\u003eIn this unit you will connect your local git repositories with \u003ca href=\&quot;https://github.com\&quot; class=\&quot;external-link\&quot; target=\&quot;_blank\&quot;\u003eGitHub\u003c/a\u003e, a place for git repositories to live in the cloud. With both these tools developers are able to quickly develop and prototype on their own machines and then share and collaborate with other developers across the world.\u003c/p\u003e\n\n\u003ch3 id=\&quot;lesson-objectives\&quot;\u003eLesson Objectives\u003c/h3\u003e\n\n\u003cul\u003e\n\u003cli\u003eSynchronize a local git repository and a Github repository\u003c/li\u003e\n\u003cli\u003eAdd, remove, and modify remotes\u003c/li\u003e\n\u003cli\u003eFork and clone a repository you do not own\u003c/li\u003e\n\u003cli\u003ePull new additions from a forked repository\u003c/li\u003e\n\u003c/ul\u003e\n&quot;,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;path&quot;:&quot;Git and GitHub/00-overview.md&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:56:58.846Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:56:58.846Z&quot;,&quot;autoscore&quot;:false,&quot;title&quot;:&quot;Overview&quot;,&quot;uid&quot;:&quot;9f8fba46-0355-432f-83d8-63bd08239d02&quot;,&quot;type_relative_position&quot;:1,&quot;default_visibility&quot;:&quot;visible&quot;,&quot;max_checkpoint_submissions&quot;:null,&quot;warnings&quot;:[],&quot;time_limit&quot;:null},{&quot;id&quot;:425068,&quot;standard_id&quot;:86240,&quot;position&quot;:2,&quot;html&quot;:&quot;\u003ch1 id=\&quot;synchronize-git--github\&quot;\u003eSynchronize Git \u0026amp; Github\u003c/h1\u003e\n\n\u003cp\u003eIn order to maximize our use of Git \u0026amp; Github, we\u0026#39;ll need to synchronize the two. Let\u0026#39;s start by making a new repository on GitHub -- \u003cem\u003enot a new local git repository\u003c/em\u003e.\u003c/p\u003e\n\n\u003cp\u003e\u003cimg src=\&quot;https://students-gschool-production.s3.amazonaws.com/uploads/asset/file/86/create-github-repo-1.png\&quot; alt=\&quot;Hit the + Icon\&quot;\u003e\n\u003cimg src=\&quot;https://students-gschool-production.s3.amazonaws.com/uploads/asset/file/87/create-github-repo-2.png\&quot; alt=\&quot;Hit Create\&quot;\u003e\u003c/p\u003e\n\n\u003cp\u003eYou may call your repository whatever you want. You will now be prompted with two sets of instructions. Stop there!\u003c/p\u003e\n\n\u003cp\u003eCreate a local git repository on your machine -- \u003cem\u003enot a new GitHub repository\u003c/em\u003e -- then add a file. Commit that file with a commit message. Once everything is good locally, copy the two lines you see on the page that look similar to this:\u003c/p\u003e\n\n\u003cp\u003e\u003cimg src=\&quot;https://s3-us-west-2.amazonaws.com/forge-production.galvanize.com/content/587be2303f8e142b5c364e71536d492f.png\&quot; alt=\&quot;\&quot;\u003e\u003c/p\u003e\n\n\u003cp\u003ePaste those two lines into your terminal where your local git repository is. Refresh your page on GitHub and you should now see your file up on the interwebs!\u003c/p\u003e\n\n\u003cp\u003eWatch the following two videos to learn more about how Git and GitHub are related and the commands you can use to synchronize between the two.\u003c/p\u003e\n\n\u003ch2 id=\&quot;git-add-commit-and-push\&quot;\u003eGit Add, Commit, and Push\u003c/h2\u003e\n\u003cscript src=\&quot;https://player.vimeo.com/api/player.js\&quot;\u003e\u003c/script\u003e\u003ciframe id=\&quot;vpt_learn0\&quot; src=\&quot;https://player.vimeo.com/video/223815936\&quot; width=\&quot;640\&quot; height=\&quot;360\&quot; frameborder=\&quot;0\&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen\u003e\u003c/iframe\u003e\u003ch2 id=\&quot;git-fetch-push-and-pull\&quot;\u003eGit Fetch, Push, and Pull\u003c/h2\u003e\n\u003cscript src=\&quot;https://player.vimeo.com/api/player.js\&quot;\u003e\u003c/script\u003e\u003ciframe id=\&quot;vpt_learn1\&quot; src=\&quot;https://player.vimeo.com/video/223815938\&quot; width=\&quot;640\&quot; height=\&quot;360\&quot; frameborder=\&quot;0\&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen\u003e\u003c/iframe\u003e\u003ch2 id=\&quot;challenges\&quot;\u003eChallenges\u003c/h2\u003e\n\n\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-a3beff7d-9fb5-469c-9fc4-1436f14f535c\&quot;\u003e\u003c/div\u003e\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-07c69be1-e2ce-4c42-b0e1-114d03c9c6ca\&quot;\u003e\u003c/div\u003e\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-40900b32-f543-46b1-856d-0d5de2e55148\&quot;\u003e\u003c/div\u003e&quot;,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;path&quot;:&quot;Git and GitHub/01-sync.md&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:56:58.882Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:56:58.882Z&quot;,&quot;autoscore&quot;:false,&quot;title&quot;:&quot;Synchronize Git \u0026 Github&quot;,&quot;uid&quot;:&quot;41093da6-ebbf-4256-b3b6-89c5ab0ce99b&quot;,&quot;type_relative_position&quot;:2,&quot;default_visibility&quot;:&quot;visible&quot;,&quot;max_checkpoint_submissions&quot;:null,&quot;warnings&quot;:[],&quot;time_limit&quot;:null},{&quot;id&quot;:425069,&quot;standard_id&quot;:86240,&quot;position&quot;:3,&quot;html&quot;:&quot;\u003ch1 id=\&quot;working-with-remotes\&quot;\u003eWorking with Remotes\u003c/h1\u003e\n\n\u003cp\u003eThe previous two lines we copied to push our local code up to GitHub include a line with the word \u003ccode\u003eremote\u003c/code\u003e. Remember, the remote is our destination.\u003c/p\u003e\n\n\u003ch2 id=\&quot;working-with-git-remotes\&quot;\u003eWorking with Git Remotes\u003c/h2\u003e\n\u003cscript src=\&quot;https://player.vimeo.com/api/player.js\&quot;\u003e\u003c/script\u003e\u003ciframe id=\&quot;vpt_learn0\&quot; src=\&quot;https://player.vimeo.com/video/223815947\&quot; width=\&quot;640\&quot; height=\&quot;360\&quot; frameborder=\&quot;0\&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen\u003e\u003c/iframe\u003e\u003ch2 id=\&quot;challenges\&quot;\u003eChallenges\u003c/h2\u003e\n\n\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-837a7058-e4da-4487-a9d8-60e9bdd1f6df\&quot;\u003e\u003c/div\u003e\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-19d3fd06-5712-4dcf-8e92-23bfa9f44a6b\&quot;\u003e\u003c/div\u003e&quot;,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;path&quot;:&quot;Git and GitHub/02-remotes.md&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:56:59.111Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:56:59.111Z&quot;,&quot;autoscore&quot;:false,&quot;title&quot;:&quot;Working with Remotes&quot;,&quot;uid&quot;:&quot;55fd6696-406c-4378-b7c8-2ce4ef847fd8&quot;,&quot;type_relative_position&quot;:3,&quot;default_visibility&quot;:&quot;visible&quot;,&quot;max_checkpoint_submissions&quot;:null,&quot;warnings&quot;:[],&quot;time_limit&quot;:null},{&quot;id&quot;:425070,&quot;standard_id&quot;:86240,&quot;position&quot;:4,&quot;html&quot;:&quot;\u003ch1 id=\&quot;forking-repositories\&quot;\u003eForking Repositories\u003c/h1\u003e\n\n\u003cp\u003eYou can\u0026#39;t just push code to anyone\u0026#39;s repository -- that would be madness! However, sometimes we\u0026#39;ll want to create a copy of someone\u0026#39;s code so that we can work on it as well. Forking is one way to do this.\u003c/p\u003e\n\n\u003cblockquote\u003e\n\u003cp\u003eA fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. - \u003ca href=\&quot;https://help.github.com/articles/fork-a-repo/\&quot; class=\&quot;external-link\&quot; target=\&quot;_blank\&quot;\u003eGitHub\u003c/a\u003e\u003c/p\u003e\n\u003c/blockquote\u003e\n\n\u003cp\u003eWhen you clone a repository, you\u0026#39;re connecting to that version of the code. With forking, you create your own version on your own GitHub account. You can fork any repository you have access to. Simply click the \u003cstrong\u003eFork\u003c/strong\u003e button in the upper right-hand corner of the GitHub repository.\u003c/p\u003e\n\n\u003ch2 id=\&quot;challenges\&quot;\u003eChallenges\u003c/h2\u003e\n\n\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-bbac3cf2-3376-477e-a216-d9036a07b7df\&quot;\u003e\u003c/div\u003e&quot;,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;path&quot;:&quot;Git and GitHub/03-forking.md&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:56:59.560Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:56:59.560Z&quot;,&quot;autoscore&quot;:false,&quot;title&quot;:&quot;Forking Repositories&quot;,&quot;uid&quot;:&quot;6475075b-ad0b-4602-8b33-52b7a5f32358&quot;,&quot;type_relative_position&quot;:4,&quot;default_visibility&quot;:&quot;visible&quot;,&quot;max_checkpoint_submissions&quot;:null,&quot;warnings&quot;:[],&quot;time_limit&quot;:null},{&quot;id&quot;:425071,&quot;standard_id&quot;:86240,&quot;position&quot;:5,&quot;html&quot;:&quot;\u003ch1 id=\&quot;pulling-new-changes\&quot;\u003ePulling New Changes\u003c/h1\u003e\n\n\u003cp\u003eForking is a great process for having your own version of code to work on. You can hack away at someone else\u0026#39;s project and make it your own. However, you will sometimes want to pull down changes from the original repository to keep your version as up to date as possible.\u003c/p\u003e\n\n\u003cp\u003eTake a look at any local git repository you\u0026#39;ve both forked and cloned. Run the following command to see all of your git remotes:\u003c/p\u003e\n\n\u003cpre lang=\&quot;bash\&quot;\u003e\u003ccode\u003egit remote -v\n\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eNotice that your \u003ccode\u003eorigin\u003c/code\u003e points towards your GitHub repository, \u003cem\u003enot\u003c/em\u003e the original repository. We can connect these new repositories by adding a new origin pointing towards the original repository.\u003c/p\u003e\n\n\u003cp\u003eFor example, let\u0026#39;s say our original repository was created by \u003cstrong\u003eAlan\u003c/strong\u003e. \u003cstrong\u003eBetty\u003c/strong\u003e has forked and cloned that repository. \u003cstrong\u003eBetty\u003c/strong\u003e has added a few commits on her own version of the repository but then sees that \u003cstrong\u003eAlan\u003c/strong\u003e has added a new commit on his original repository. \u003cstrong\u003eBetty\u003c/strong\u003e would then add Alan\u0026#39;s latest version through something like:\u003c/p\u003e\n\n\u003cpre lang=\&quot;bash\&quot;\u003e\u003ccode\u003egit remote add upstream https://github.com/alan/alans-repo\n\u003c/code\u003e\u003c/pre\u003e\n\n\u003cp\u003eShe can now \u003ccode\u003efetch\u003c/code\u003e, \u003ccode\u003emerge\u003c/code\u003e, and \u003ccode\u003epull\u003c/code\u003e from the upstream remote instead of origin. For example:\u003c/p\u003e\n\n\u003cpre lang=\&quot;bash\&quot;\u003e\u003ccode\u003egit pull upstream master\n\u003c/code\u003e\u003c/pre\u003e\n\n\u003ch2 id=\&quot;challenges\&quot;\u003eChallenges\u003c/h2\u003e\n\n\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-5077c0eb-f66e-4dab-bff3-46a5151cfd72\&quot;\u003e\u003c/div\u003e&quot;,&quot;content_file_type&quot;:&quot;lesson&quot;,&quot;path&quot;:&quot;Git and GitHub/04-pulling-new-changes.md&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:00.359Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:00.359Z&quot;,&quot;autoscore&quot;:false,&quot;title&quot;:&quot;Pulling New Changes&quot;,&quot;uid&quot;:&quot;65eb193c-1ab6-40e3-9d8d-318d69727d30&quot;,&quot;type_relative_position&quot;:5,&quot;default_visibility&quot;:&quot;visible&quot;,&quot;max_checkpoint_submissions&quot;:null,&quot;warnings&quot;:[],&quot;time_limit&quot;:null},{&quot;id&quot;:425072,&quot;standard_id&quot;:86240,&quot;position&quot;:6,&quot;html&quot;:&quot;\u003ch1 id=\&quot;checkpoint\&quot;\u003eCheckpoint\u003c/h1\u003e\n\n\u003cp\u003eThis checkpoint will require you to use what you\u0026#39;ve learned from the previous lessons. The goal is to gain mastery over this standard, so take some time, review lessons, and ask for help if you need it!\u003c/p\u003e\n\n\u003ch2 id=\&quot;questions\&quot;\u003eQuestions\u003c/h2\u003e\n\n\u003c!-- Question --\u003e\n\u003cdiv id=\&quot;challenge-70054d0f-112d-4fc2-8c17-3f5ab90983db\&quot;\u003e\u003c/div\u003e&quot;,&quot;content_file_type&quot;:&quot;checkpoint&quot;,&quot;path&quot;:&quot;Git and GitHub/99-checkpoint.md&quot;,&quot;created_at&quot;:&quot;2021-01-15T16:57:00.496Z&quot;,&quot;updated_at&quot;:&quot;2021-01-15T16:57:00.496Z&quot;,&quot;autoscore&quot;:false,&quot;title&quot;:&quot;Checkpoint&quot;,&quot;uid&quot;:&quot;0e6ca241-65d5-11e8-b743-bd3df75f314b&quot;,&quot;type_relative_position&quot;:1,&quot;default_visibility&quot;:&quot;visible&quot;,&quot;max_checkpoint_submissions&quot;:null,&quot;warnings&quot;:[],&quot;time_limit&quot;:null}],&quot;current_content_file_position&quot;:2,&quot;next_content_file_link&quot;:&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/02-remotes.md&quot;,&quot;has_submitted_checkpoint&quot;:false,&quot;is_checkpoint_draft&quot;:null,&quot;last_checkpoint_submitted_on&quot;:null,&quot;challenges_with_answers&quot;:[{&quot;id&quot;:752922,&quot;uid&quot;:&quot;40900b32-f543-46b1-856d-0d5de2e55148&quot;,&quot;user_id&quot;:null,&quot;latest_submissions_for_cohort&quot;:[],&quot;submitted_challenge_answer_presenters&quot;:[],&quot;answered&quot;:false,&quot;autoscorable&quot;:true,&quot;challenge_type&quot;:&quot;short-answer&quot;,&quot;title&quot;:&quot;Git Push, Fetch, and Pull B&quot;,&quot;topics&quot;:null,&quot;decimal&quot;:null,&quot;question&quot;:&quot;\u003cp\u003eA classmate has pushed up a new commit to GitHub on a repository you\u0026#39;re both working on. What single command should you run?\u003c/p\u003e\n&quot;,&quot;points&quot;:1,&quot;language&quot;:null,&quot;placeholder&quot;:null,&quot;options&quot;:null,&quot;can_check_answer&quot;:true,&quot;can_view_status&quot;:true,&quot;can_view_explanation&quot;:true,&quot;number_of_hints&quot;:0,&quot;hints&quot;:[],&quot;show_tests&quot;:false},{&quot;id&quot;:752921,&quot;uid&quot;:&quot;07c69be1-e2ce-4c42-b0e1-114d03c9c6ca&quot;,&quot;user_id&quot;:null,&quot;latest_submissions_for_cohort&quot;:[],&quot;submitted_challenge_answer_presenters&quot;:[],&quot;answered&quot;:false,&quot;autoscorable&quot;:true,&quot;challenge_type&quot;:&quot;multiple-choice&quot;,&quot;title&quot;:&quot;Git Push, Fetch, and Pull A&quot;,&quot;topics&quot;:null,&quot;decimal&quot;:null,&quot;question&quot;:&quot;\u003cp\u003eThe \u003ccode\u003epull\u003c/code\u003e command is the combination of what two other commands?\u003c/p\u003e\n&quot;,&quot;points&quot;:1,&quot;language&quot;:null,&quot;placeholder&quot;:null,&quot;options&quot;:[{&quot;rendered_option&quot;:&quot;\u003cp\u003e\u003ccode\u003efetch\u003c/code\u003e and \u003ccode\u003epush\u003c/code\u003e\u003c/p\u003e\n&quot;,&quot;option&quot;:&quot;`fetch` and `push`&quot;},{&quot;rendered_option&quot;:&quot;\u003cp\u003e\u003ccode\u003epush\u003c/code\u003e and \u003ccode\u003emerge\u003c/code\u003e\u003c/p\u003e\n&quot;,&quot;option&quot;:&quot;`push` and `merge`&quot;},{&quot;rendered_option&quot;:&quot;\u003cp\u003e\u003ccode\u003efetch\u003c/code\u003e and \u003ccode\u003emerge\u003c/code\u003e\u003c/p\u003e\n&quot;,&quot;option&quot;:&quot;`fetch` and `merge`&quot;}],&quot;can_check_answer&quot;:true,&quot;can_view_status&quot;:true,&quot;can_view_explanation&quot;:true,&quot;number_of_hints&quot;:0,&quot;hints&quot;:[],&quot;show_tests&quot;:false},{&quot;id&quot;:752920,&quot;uid&quot;:&quot;a3beff7d-9fb5-469c-9fc4-1436f14f535c&quot;,&quot;user_id&quot;:null,&quot;latest_submissions_for_cohort&quot;:[],&quot;submitted_challenge_answer_presenters&quot;:[],&quot;answered&quot;:false,&quot;autoscorable&quot;:false,&quot;challenge_type&quot;:&quot;paragraph&quot;,&quot;title&quot;:&quot;Git and GitHub&quot;,&quot;topics&quot;:null,&quot;decimal&quot;:null,&quot;question&quot;:&quot;\u003cp\u003eIn your own words, describe the rocket ship analogy in terms of how it relates to git and GitHub.\u003c/p\u003e\n&quot;,&quot;points&quot;:1,&quot;language&quot;:null,&quot;placeholder&quot;:&quot;Write your answer here&quot;,&quot;options&quot;:null,&quot;can_check_answer&quot;:true,&quot;can_view_status&quot;:true,&quot;can_view_explanation&quot;:true,&quot;number_of_hints&quot;:0,&quot;hints&quot;:[],&quot;show_tests&quot;:false}],&quot;cohort_content_file_submitted_challenge_answers_path&quot;:&quot;/cohorts/2406/content_files/425068/submitted_challenge_answers&quot;,&quot;github_url&quot;:&quot;https://github.com/gSchool/git-github-block/blob/afcsdi/Git and GitHub/01-sync.md&quot;},&quot;cohortMode&quot;:&quot;Percentage&quot;,&quot;checkpointIsAutoscored&quot;:false,&quot;isEnrolledStudent&quot;:true,&quot;isIpynb&quot;:false,&quot;footer&quot;:&quot;\u003cdiv class='content-arrow-container'\u003e\n\u003cdiv class='content-arrows'\u003e\n\u003ca class=\&quot;standard-arrow -prev\&quot; title=\&quot;Overview\&quot; href=\&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/00-overview.md\&quot;\u003e\u003cdiv\u003e\n\u003csvg class='svg svg-24px'\u003e\n\u003cuse xlink:href='/assets/svg/svg-sprite-navigation-symbol-4866a42bf9ae89a72189bad73804587a03fd9a1d6ee973a00be60321aea055a5.svg#ic_arrow_back_24px'\u003e\u003c/use\u003e\n\u003c/svg\u003e\n\u003cspan\u003e\nOverview\n\u003c/span\u003e\n\u003c/div\u003e\n\u003c/a\u003e\u003ca class=\&quot;standard-arrow -next\&quot; title=\&quot;Working with Remotes\&quot; href=\&quot;/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/02-remotes.md\&quot;\u003e\u003cdiv\u003e\nNEXT: \u0026nbsp;\n\u003cspan\u003e\nWorking with Remotes\n\u003c/span\u003e\n\u003csvg class='svg svg-24px'\u003e\n\u003cuse xlink:href='/assets/svg/svg-sprite-navigation-symbol-4866a42bf9ae89a72189bad73804587a03fd9a1d6ee973a00be60321aea055a5.svg#ic_arrow_forward_24px'\u003e\u003c/use\u003e\n\u003c/svg\u003e\n\u003c/div\u003e\n\u003c/a\u003e\u003c/div\u003e\n\u003c/div\u003e\n&quot;,&quot;isSandBoxCohort&quot;:false,&quot;curriculumWarningCount&quot;:0,&quot;cohortId&quot;:2406,&quot;submissionUrl&quot;:&quot;/cohorts/2406/content_files/425068/submitted_challenge_answers&quot;,&quot;visibilityPath&quot;:null,&quot;spinnerPath&quot;:&quot;/assets/loader-cyan-f1998d982f38e84327f59981551864f417afe4ae7c8d96e3fcc22377a442d1c3.svg&quot;,&quot;allCompleteImagePath&quot;:&quot;/assets/svg/svg-sprite-navigation-symbol-4866a42bf9ae89a72189bad73804587a03fd9a1d6ee973a00be60321aea055a5.svg#ic_check_24px&quot;,&quot;awaitingGradeImagePath&quot;:&quot;/assets/svg/svg-sprite-device-symbol-cceef0212c46eab805c221be781050e00c30ebc5668ed08ed19efab96838ba90.svg#ic_access_time_24px&quot;,&quot;checkpointIcon&quot;:&quot;/assets/svg/svg-sprite-action-symbol-12e2e8ae9e0248f7f516f9a06fff9bf46178c048e5d56855a130fc1110b2f5a8.svg#ic_grade_24px&quot;,&quot;doesNotCountIcon&quot;:&quot;/assets/images/svg/svg-link_off-24px.svg&quot;,&quot;lessonIcon&quot;:&quot;/assets/svg/baseline-notes-24px-b2fcb87f0e0f44dac10f8931c812f101bb7e87053d5816f38eebf7c05e8e8282.svg#notescontent&quot;,&quot;rejectedImagePath&quot;:&quot;/assets/images/svg/checkpoint-is-rejected.svg&quot;,&quot;blockId&quot;:&quot;58&quot;}"><div class="content-file-content"><div class="lesson-layout"><div class="left-container"><div class="content-file-sidebar"><div class="actionsrow"><a href="https://learn-2.galvanize.com/cohorts/2406" class="blockslink" aria-label="navigates to curriculum overview"><svg class="svg svg-24px " viewBox="0 0 24 24"><use xlink:href="/assets/images/svg/svg-sprite-navigation-symbol.svg#ic_apps_24px"></use></svg></a><div class="toggleaction"><svg class="svg svg-24px " viewBox="0 0 24 24"><use xlink:href="/assets/images/svg/svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_down_24px"></use></svg></div></div><div class="standardrow -status-in-progress -mode-percentage"><div class="standardtitle" title="Foo">Git &amp; GitHub</div></div><div class="standardprogressbar"><div class="progressbar -theme-dark"><div class="progress-percentage" style="width: 25%;"></div></div></div><div class="bodyrow"><a href="https://learn-2.galvanize.com/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/00-overview.md" title="Overview" class="lesson"><div class="itemrow "><div class="iconcel"></div><div class="lessoncel"><div class="lessontitle">Overview</div></div><svg viewBox="0 0 36 36" class="donut"><circle class="donut-hole" cx="18" cy="18" r="15.91549430918954" fill="transparent"></circle><circle class="donut-ring" cx="18" cy="18" r="15.91549430918954" fill="transparent" stroke="#666666" stroke-width="3"></circle><svg viewBox="0 0 36 36"><g class="Symbols" stroke="none" stroke-width="3" fill="none" fill-rule="evenodd"><g class="Elements/icons/challenge-score/correct"><circle class="Oval" stroke="#51AFB9" stroke-width="3" cx="18" cy="18" fill="#51AFB9" r="15.91549430918954"></circle><g class="Elements/icons/check/blue" transform="translate(6.0000000, 6.000000)"><g class="navigation"><g class="ic_check_24px"><polygon class="Shape" fill="#3a4352" transform="scale(1.5)" points="6 10.78 3.22 8 2.27333333 8.94 6 12.6666667 14 4.66666667 13.06 3.72666667"></polygon></g></g></g></g></g></svg></svg></div></a><a href="https://learn-2.galvanize.com/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/01-sync.md" title="Synchronize Git &amp; Github" class="lesson"><div class="itemrow -is-active"><div class="iconcel"></div><div class="lessoncel"><div class="lessontitle">Synchronize Git &amp; Github</div></div></div></a><a href="https://learn-2.galvanize.com/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/02-remotes.md" title="Working with Remotes" class="lesson"><div class="itemrow "><div class="iconcel"></div><div class="lessoncel"><div class="lessontitle">Working with Remotes</div></div></div></a><a href="https://learn-2.galvanize.com/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/03-forking.md" title="Forking Repositories" class="lesson"><div class="itemrow "><div class="iconcel"></div><div class="lessoncel"><div class="lessontitle">Forking Repositories</div></div></div></a></div></div></div><div class="body-container"><div class="mdown-container"><div><h1 id="synchronize-git--github">Synchronize Git &amp; Github</h1>
+
+<p>In order to maximize our use of Git &amp; Github, we'll need to 
+synchronize the two. Let's start by making a new repository on GitHub --
+ <em>not a new local git repository</em>.</p>
+
+<p><img src="Synchronize%20Git%20&amp;%20Github_files/create-github-repo-1.xml" alt="Hit the + Icon">
+<img src="Synchronize%20Git%20&amp;%20Github_files/create-github-repo-2.xml" alt="Hit Create"></p>
+
+<p>You may call your repository whatever you want. You will now be prompted with two sets of instructions. Stop there!</p>
+
+<p>Create a local git repository on your machine -- <em>not a new GitHub repository</em>
+ -- then add a file. Commit that file with a commit message. Once 
+everything is good locally, copy the two lines you see on the page that 
+look similar to this:</p>
+
+<p><img src="Synchronize%20Git%20&amp;%20Github_files/587be2303f8e142b5c364e71536d492f.png" alt=""></p>
+
+<p>Paste those two lines into your terminal where your local git 
+repository is. Refresh your page on GitHub and you should now see your 
+file up on the interwebs!</p>
+
+<p>Watch the following two videos to learn more about how Git and GitHub
+ are related and the commands you can use to synchronize between the 
+two.</p>
+
+<h2 id="git-add-commit-and-push">Git Add, Commit, and Push</h2>
+<script src="Synchronize%20Git%20&amp;%20Github_files/player.js"></script><div class="fluidvids" style="padding-top: 56.25%;"><iframe id="vpt_learn0" src="Synchronize%20Git%20&amp;%20Github_files/223815936.html" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="fluidvids-item" data-fluidvids="loaded" width="640" height="360" frameborder="0"></iframe></div><h2 id="git-fetch-push-and-pull">Git Fetch, Push, and Pull</h2>
+<script src="Synchronize%20Git%20&amp;%20Github_files/player.js"></script><div class="fluidvids" style="padding-top: 56.25%;"><iframe id="vpt_learn1" src="Synchronize%20Git%20&amp;%20Github_files/223815938.html" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" class="fluidvids-item" data-fluidvids="loaded" width="640" height="360" frameborder="0"></iframe></div><h2 id="challenges">Challenges</h2>
+
+<!-- Question -->
+<div id="challenge-a3beff7d-9fb5-469c-9fc4-1436f14f535c"><form class="challenge-block lesson" data-challenge-type="paragraph" data-is-gradeable="true" id="challenge_752920"><input name="challenge_id" type="hidden" value="752920"><div class="challenge-header"><div class="icon-container">1</div><div class="textcontainer"><div class="title">Git and GitHub</div></div></div><div class="problem "><p>In your own words, describe the rocket ship analogy in terms of how it relates to git and GitHub.</p>
+</div><div class="answer"><textarea aria-label="text answer input" autocomplete="off" name="answer" placeholder="Write your answer here" rows="12"></textarea></div><div class="actions"><div class="buttons"><button class="lp-style-button resetbutton">Reset Input</button><div style="display: inline-block;"><button class="lp-style-button undefined " id="challenge-button-752920" type="submit">SUBMIT</button></div></div></div></form></div><!-- Question -->
+<div id="challenge-07c69be1-e2ce-4c42-b0e1-114d03c9c6ca"><form class="challenge-block lesson" data-challenge-type="multiple-choice" data-is-gradeable="true" id="challenge_752921"><input name="challenge_id" type="hidden" value="752921"><div class="challenge-header"><div class="icon-container">2</div><div class="textcontainer"><div class="title">Git Push, Fetch, and Pull A</div></div></div><div class="problem "><p>The <code tabindex="0">pull</code> command is the combination of what two other commands?</p>
+</div><div class="answer"><label class="multi-choice-challenge-label"><input class="multi-choice-challenge-input" type="radio" name="challenge[answer]" value="`fetch` and `push`"><div class="renderedmdown"><p><code tabindex="0">fetch</code> and <code tabindex="0">push</code></p>
+</div></label><label class="multi-choice-challenge-label"><input class="multi-choice-challenge-input" type="radio" name="challenge[answer]" value="`push` and `merge`"><div class="renderedmdown"><p><code tabindex="0">push</code> and <code tabindex="0">merge</code></p>
+</div></label><label class="multi-choice-challenge-label"><input class="multi-choice-challenge-input" type="radio" name="challenge[answer]" value="`fetch` and `merge`"><div class="renderedmdown"><p><code tabindex="0">fetch</code> and <code tabindex="0">merge</code></p>
+</div></label></div><div class="actions"><div class="buttons"><button class="lp-style-button resetbutton">Reset Input</button><div style="display: inline-block;"><button class="lp-style-button undefined " id="challenge-button-752921" type="submit">CHECK ANSWER</button></div></div></div></form></div><!-- Question -->
+<div id="challenge-40900b32-f543-46b1-856d-0d5de2e55148"><form class="challenge-block lesson" data-challenge-type="short-answer" data-is-gradeable="true" id="challenge_752922"><input name="challenge_id" type="hidden" value="752922"><div class="challenge-header"><div class="icon-container">3</div><div class="textcontainer"><div class="title">Git Push, Fetch, and Pull B</div></div></div><div class="problem "><p>A classmate has pushed up a new commit to GitHub on a repository you're both working on. What single command should you run?</p>
+</div><div class="answer"><input aria-label="text answer input" autocomplete="off" name="answer" placeholder="" type="text"></div><div class="actions"><div class="buttons"><button class="lp-style-button resetbutton">Reset Input</button><div style="display: inline-block;"><button class="lp-style-button undefined " id="challenge-button-752922" type="submit">CHECK ANSWER</button></div></div></div></form></div></div></div><div><div class="content-arrow-container">
+<div class="content-arrows">
+<a class="standard-arrow -prev" title="Overview" href="https://learn-2.galvanize.com/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/00-overview.md"><div>
+<svg class="svg svg-24px">
+<use xlink:href="/assets/svg/svg-sprite-navigation-symbol-4866a42bf9ae89a72189bad73804587a03fd9a1d6ee973a00be60321aea055a5.svg#ic_arrow_back_24px"></use>
+</svg>
+<span>
+Overview
+</span>
+</div>
+</a><a class="standard-arrow -next" title="Working with Remotes" href="https://learn-2.galvanize.com/cohorts/2406/blocks/58/content_files/Git%20and%20GitHub/02-remotes.md"><div>
+NEXT: &nbsp;
+<span>
+Working with Remotes
+</span>
+<svg class="svg svg-24px">
+<use xlink:href="/assets/svg/svg-sprite-navigation-symbol-4866a42bf9ae89a72189bad73804587a03fd9a1d6ee973a00be60321aea055a5.svg#ic_arrow_forward_24px"></use>
+</svg>
+</div>
+</a></div>
+</div>
+</div></div></div></div></div>
+<script>
+  $(document).on("ready", function () {
+    waitAndAddLinks();
+    function addLinks() {
+      $('main')
+        .find('.external-link')
+        .each((i, element) => {
+          $(element).append(`
+            <svg class="svg">
+              <use xlink:href="/assets/images/svg/svg-sprite-action-symbol.svg#ic_launch_24px" />
+            </svg>
+          `);
+        });
+    }
+  
+    function waitAndAddLinks() {
+      if (!$("main").size()) {
+        window.requestAnimationFrame(waitAndAddLinks);
+      } else {
+        addLinks();
+      }
+    }
+  
+    // Style lists that have tasks in them
+    var tasksListItems = $(".md-task");
+    if (tasksListItems.length > 0) {
+      tasksListItems.closest("li").addClass("task-list-item").closest("ul").addClass("task-list");
+    }
+    
+    $('pre').each((_i,pre)=>{
+      lang = $(pre).first().attr("lang")
+      $(pre).first().children("code").first().addClass(lang)
+    })
+  
+    hljs.configure({
+      tabReplace: '    ',
+    });
+  
+    $('pre:not([lang])').addClass('text');
+  
+    hljs.initHighlightingOnLoad();
+    window.highlightCodeBlocks();
+  
+    $("iframe.fluidvids-item").each(function(i,vid) {
+      trackVideo(vid);
+    });
+  
+    function trackVideo(video) {
+      var player = new Vimeo(video);
+  
+      player.getVideoId().then(function(id) {
+        var sharedProps = {"content_asset_id": id, "video_player": "vimeo"};
+        player.getDuration().then(function(duration) {
+          sharedProps["total_length"] = duration;
+        })
+  
+        player.getVideoUrl().then(function(url) {
+          sharedProps["content_asset_url"] = url;
+        })
+  
+        player.on('play', function(time) {
+          sharedProps["position"] = time.seconds;
+          if (time.seconds == 0) {
+            analytics.track('Video Playback Started', sharedProps);
+          } else if (time.seconds > 0) {
+            analytics.track('Video Playback Resumed', sharedProps);
+          }
+        });
+  
+        player.on('pause', function(time) {
+          sharedProps["position"] = time.seconds;
+          if (sharedProps["position"] < sharedProps["total_length"]) {
+            analytics.track('Video Playback Paused', sharedProps);
+          } else {
+            analytics.track('Video Playback Completed', sharedProps);
+          }
+        });
+  
+        player.on('bufferstart', function() {
+          player.getCurrentTime().then(function(seconds) {
+            sharedProps["position"] = seconds;
+            analytics.track('Video Playback Buffer Started', sharedProps);
+          })
+        });
+  
+        player.on('bufferend', function() {
+          player.getCurrentTime().then(function(seconds) {
+            sharedProps["position"] = seconds;
+            analytics.track('Video Playback Buffer Completed', sharedProps);
+          })
+        });
+  
+        player.on('seeked', function(time) {
+            sharedProps["position"] = time.seconds;
+            analytics.track('Video Playback Seek Completed', sharedProps);
+        });
+  
+        player.on('ended', function(time) {
+          sharedProps["position"] = seconds;
+          analytics.track('Video Playback Completed', sharedProps);
+        });
+      });
+    }
+  });
+</script>
+
+<script>
+  const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  }
+  
+  // content file sidebar toggle
+  window.onDocumentReady(async function () {
+    sleep(500).then(() => {
+      var $htmlEl = document.documentElement;
+      var $lessonLayoutEl = document.querySelector('.lesson-layout');
+      if (!$lessonLayoutEl) return;
+      var $sideBarEl = document.querySelector('.content-file-sidebar');
+      var yOffset = (window.pageYOffset || 0);
+      var yTarget = ($lessonLayoutEl.getBoundingClientRect().top + yOffset || -1);
+  
+      if ($sideBarEl) {
+        var isSticky = $sideBarEl.classList.contains('-is-sticky');
+      }
+  
+      var handleScroll = function (e) {
+        yOffset = window.pageYOffset;
+        window.requestAnimationFrame(toggleSticky);
+      };
+  
+      var toggleSticky = function () {
+        if (yOffset >= yTarget) {
+          !isSticky ? $sideBarEl.classList.add('-is-sticky') : null ;
+        } else {
+          $sideBarEl.classList.remove('-is-sticky');
+        }
+      };
+    })
+  });
+  
+  sleep(500).then(() => {
+    // fluidvids.js
+    (function (root, factory) {
+      if (typeof define === 'function' && define.amd) {
+        define(factory);
+      } else if (typeof exports === 'object') {
+        module.exports = factory;
+      } else {
+        root.fluidvids = factory();
+      }
+    })(this, function () {
+  
+      'use strict';
+  
+      var fluidvids = {
+        selector: ['iframe', 'object'],
+        players: ['www.youtube.com', 'player.vimeo.com']
+      };
+  
+      var css = [
+        '.fluidvids {',
+          'width: 100%; max-width: 100%; position: relative;',
+        '}',
+        '.fluidvids-item {',
+          'position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;',
+        '}'
+      ].join('');
+  
+      var head = document.head || document.getElementsByTagName('head')[0];
+  
+      function matches (src) {
+        return new RegExp('^(https?:)?\/\/(?:' + fluidvids.players.join('|') + ').*$', 'i').test(src);
+      }
+  
+      function getRatio (height, width) {
+        return ((parseInt(height, 10) / parseInt(width, 10)) * 100) + '%';
+      }
+  
+      function fluid (elem) {
+        if (!matches(elem.src) && !matches(elem.data) || !!elem.getAttribute('data-fluidvids')) return;
+        var wrap = document.createElement('div');
+        elem.parentNode.insertBefore(wrap, elem);
+        elem.className += (elem.className ? ' ' : '') + 'fluidvids-item';
+        elem.setAttribute('data-fluidvids', 'loaded');
+        wrap.className += 'fluidvids';
+        wrap.style.paddingTop = getRatio(elem.height, elem.width);
+        wrap.appendChild(elem);
+      }
+  
+      function addStyles () {
+        var div = document.createElement('div');
+        div.innerHTML = '<p>x</p><style>' + css + '</style>';
+        head.appendChild(div.childNodes[1]);
+      }
+  
+      fluidvids.render = function () {
+        var nodes = document.querySelectorAll(fluidvids.selector.join());
+        var i = nodes.length;
+        while (i--) {
+          fluid(nodes[i]);
+        }
+      };
+  
+      fluidvids.init = function (obj) {
+        for (var key in obj) {
+          fluidvids[key] = obj[key];
+        }
+        fluidvids.render();
+        addStyles();
+      };
+  
+      return fluidvids;
+    });
+  
+    // fluidvids.js init
+    fluidvids.init({
+      selector: ['iframe', 'object'], // runs querySelectorAll()
+      players: ['player.vimeo.com'] // players to support
+    });
+  })
+</script>
+
+</main>
+<footer style="width: 1361px;" class="navigation-move-right">
+<span>© 2013 - 2021 Galvanize, Inc.</span>
+<ul>
+<li><a target="_blank" href="http://www.galvanize.com/privacy">Privacy Policy</a></li>
+<li><a target="_blank" href="http://www.galvanize.com/terms-of-use">Terms of Use</a></li>
+<li><a target="_blank" href="http://www.galvanize.com/">Galvanize</a></li>
+<li><a href="mailto:info@galvanize.com">info@galvanize.com</a></li>
+</ul>
+</footer>
+
+<script>
+  window.intercomSettings = {
+    app_id: "tffxlsz2",
+    cohort_id:  "2406",
+    cohort_label:  "",
+    cohort_name:  "AFC Software Development Immersive - Feb 1, 2021",
+    created_at: "2021-01-30 00:28:52 UTC",
+    name: "Vincent LoGiudice",
+    email: "vincent.r.logiudice.mil@mail.mil",
+    user_role: "student",
+    user_id:  "76788",
+  };
+</script>
+<script>
+  (function(){
+    var w=window;
+    var ic=w.Intercom;
+    if(typeof ic==="function"){
+      ic('reattach_activator');
+      ic('update',intercomSettings);
+    }else{
+      var d=document;
+      var i=function(){i.c(arguments)};
+      i.q=[];
+      i.c=function(args){i.q.push(args)};
+      w.Intercom=i;
+      function l(){
+        var s=d.createElement('script');
+        s.type='text/javascript';
+        s.async=true;
+        s.src='https://widget.intercom.io/widget/APP_ID';
+        var x=d.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s,x);
+      }
+      if(w.attachEvent){
+        w.attachEvent('onload',l);
+      }else{
+        w.addEventListener('load',l,false);
+      }
+    }
+  })()
+</script>
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: STIXSizeOneSym, sans-serif;"></div></div><iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important; pointer-events: none;" aria-hidden="true" tabindex="-1" title="Intercom"></iframe><div class="intercom-lightweight-app" aria-live="polite"><style id="intercom-lightweight-app-style" type="text/css">
+  @keyframes intercom-lightweight-app-launcher {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes intercom-lightweight-app-gradient {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes intercom-lightweight-app-messenger {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .intercom-lightweight-app {
+    position: fixed;
+    z-index: 2147483001;
+    width: 0;
+    height: 0;
+    font-family: intercom-font, "Helvetica Neue", "Apple Color Emoji", Helvetica, Arial, sans-serif;
+  }
+
+  .intercom-lightweight-app-gradient {
+    position: fixed;
+    z-index: 2147483002;
+    width: 500px;
+    height: 500px;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at bottom right,
+      rgba(29, 39, 54, 0.16) 0%,
+      rgba(29, 39, 54, 0) 72%);
+    animation: intercom-lightweight-app-gradient 200ms ease-out;
+  }
+
+  .intercom-lightweight-app-launcher {
+    position: fixed;
+    z-index: 2147483003;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #007B86;
+    cursor: pointer;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.06), 0 2px 32px 0 rgba(0, 0, 0, 0.16);
+    animation: intercom-lightweight-app-launcher 250ms ease;
+  }
+
+  .intercom-lightweight-app-launcher:focus {
+    outline: none;
+    
+  }
+
+  .intercom-lightweight-app-launcher-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    transition: transform 100ms linear, opacity 80ms linear;
+  }
+
+  .intercom-lightweight-app-launcher-icon-open {
+    
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      
+  }
+
+  .intercom-lightweight-app-launcher-icon-open svg {
+    width: 28px;
+    height: 32px;
+  }
+
+  .intercom-lightweight-app-launcher-icon-open svg path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .intercom-lightweight-app-launcher-icon-self-serve {
+    
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      
+  }
+
+  .intercom-lightweight-app-launcher-icon-self-serve svg {
+    height: 56px;
+  }
+
+  .intercom-lightweight-app-launcher-icon-self-serve svg path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .intercom-lightweight-app-launcher-custom-icon-open {
+    max-height: 36px;
+    max-width: 36px;
+    
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      
+  }
+
+  .intercom-lightweight-app-launcher-icon-minimize {
+    
+        opacity: 0;
+        transform: rotate(-60deg) scale(0);
+      
+  }
+
+  .intercom-lightweight-app-launcher-icon-minimize svg {
+    width: 16px;
+  }
+
+  .intercom-lightweight-app-launcher-icon-minimize svg path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .intercom-lightweight-app-messenger {
+    position: fixed;
+    z-index: 2147483003;
+    overflow: hidden;
+    background-color: white;
+    animation: intercom-lightweight-app-messenger 250ms ease-out;
+    
+        width: 376px;
+        height: calc(100% - 40px);
+        max-height: 704px;
+        min-height: 250px;
+        right: 20px;
+        bottom: 20px;
+        box-shadow: 0 5px 40px rgba(0,0,0,0.16);
+        border-radius: 8px;
+      
+  }
+
+  .intercom-lightweight-app-messenger-header {
+    height: 75px;
+    background: linear-gradient(
+      135deg,
+      rgb(0, 123, 134) 0%,
+      rgb(0, 29, 32) 100%
+    );
+  }
+
+  @media print {
+    .intercom-lightweight-app {
+      display: none;
+    }
+  }
+</style></div></body></html>
